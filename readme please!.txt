@@ -1,0 +1,1 @@
+runing "do_inst_bot" ->login -> wait 3~5 days
