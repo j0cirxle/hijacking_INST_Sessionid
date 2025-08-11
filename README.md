@@ -31,4 +31,57 @@ The stolen session ID is transmitted in real-time to the attacker's server, allo
 
 ---
 
+# Using
+
+INST-Hijacking
+Disclaimer
+This project is intended for educational purposes and authorized penetration testing only. Do not use these scripts against accounts, systems, or networks you do not own or have explicit permission to test. Unauthorized use may violate computer crime laws.
+
+Overview
+INST-Hijacking is a proof-of-concept toolkit that demonstrates Instagram session hijacking.
+The attacker runs a server to receive stolen session data, while the victim unknowingly executes a client script that automates Instagram login using ChromeDriver.
+
+Components
+
+server.py - Attacker-side listener. Waits for incoming connections from the victim client.
+client.py - Victim-side script. Connects to the attacker’s IP/Port and performs automated Instagram actions.
+instagram_bot.exe - ChromeDriver executable used by client.py for browser automation.
+
+How It Works
+The attacker runs server.py on their machine, listening for incoming connections.
+
+The victim runs client.py, which:
+
+Connects to the attacker’s IP and port
+
+Launches instagram_bot.exe (ChromeDriver)
+
+Performs automated Instagram actions
+
+All traffic is sent to the attacker’s listener, enabling session hijacking.
+
+Usage
+Attacker Side
+Run:
+`python server.py`
+
+When prompted:
+
+`Enter attacker IP (e.g., 192.168.1.100)`
+
+`Enter attacker port (e.g., 8080)`
+
+Victim Side
+Place client.py and instagram_bot.exe in the same folder.
+
+Run:
+`python client.py`
+
+Important: instagram_bot.exe is actually chromedriver.exe and must match the Chrome version installed on the victim’s machine.
+
+Legal Notice
+This project is strictly for security research and testing in controlled environments. Do not deploy in real-world scenarios without explicit permission. Misuse may lead to criminal prosecution.
+
+
+
 *This repository is for educational and security awareness purposes only.*
